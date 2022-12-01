@@ -1,0 +1,11 @@
+
+
+#create codeIgniter in commandline
+
+php spark make:controller //appname//
+
+#start codeIgniter
+
+php spart serve
+
+
