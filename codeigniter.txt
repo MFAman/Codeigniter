@@ -8,4 +8,9 @@ php spark make:controller //appname//
 
 php spart serve
 
+php spark make:model ModelName
+
+php spark make:controller ControllerName
+
+
 
