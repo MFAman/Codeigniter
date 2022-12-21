@@ -12,5 +12,21 @@ php spark make:model ModelName
 
 php spark make:controller ControllerName
 
+composer create-project codeigniter4/appstarter ci4project3
 
+php spark serve
 
+Student crud
+   -Student Migration
+   -Student Migrate
+   -Student Model
+   -Student Controller
+   -Student View
+
+   >Php spark make:migration Student
+   >php spark migrate
+   >php spark migrate:refresh
+   >php spark make:model student
+   >php spark make:model studentModel
+   >php spark make:controller student
+   >php spark make:controller student --restful
