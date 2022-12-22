@@ -38,7 +38,9 @@ class Student extends ResourceController
      */
     public function new()
     {
-        //
+        // echo "Yes";
+        $data['title'] = "Student Entry";
+        return view("students/add_student", $data);
     }
 
     /**
@@ -48,7 +50,18 @@ class Student extends ResourceController
      */
     public function create()
     {
-        //
+        $model = new StudentModel();
+        // $data['name'] = $this->request->getPost('name');
+        // $data['email'] = $this->request->getPost('email');
+        // $data['phone'] = $this->request->getPost('phone');
+        // $data['address'] = $this->request->getPost('address');
+        // fild theke akta akta kore nite hole uporer code
+
+        $data = $this->request->getPost(); // all fild paye jabe
+        // print_r($data);
+        $model->save($data);
+        // return redirect()->back();
+        return redirect('Student');
     }
 
     /**
@@ -58,7 +71,10 @@ class Student extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        // echo "Yes";
+        $model = new StudentModel();
+        $data['student'] = $model->find($id);
+        return view("students/edit_student", $data);
     }
 
     /**
@@ -68,7 +84,12 @@ class Student extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        $model = new StudentModel();
+        $data = $this->request->getPost();
+        // print_r($data);
+        if ($model->update($id, $data)) {
+            return redirect()->to('Student');
+        }
     }
 
     /**
@@ -78,6 +99,8 @@ class Student extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $model = new StudentModel();
+        $model->delete($id);
+        return redirect()->to('Student');
     }
 }

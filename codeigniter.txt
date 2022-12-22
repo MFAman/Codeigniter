@@ -1,5 +1,4 @@
 
-
 #create codeIgniter in commandline
 
 php spark make:controller //appname//
@@ -30,3 +29,7 @@ Student crud
    >php spark make:model studentModel
    >php spark make:controller student
    >php spark make:controller student --restful
+
+php spark
+
+php spark key:generate
