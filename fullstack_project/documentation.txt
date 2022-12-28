@@ -1,0 +1,22 @@
+      26 Dec 2022
+1. AdminLTE download
+2. htdocs/fullstack_project
+3. composer create-project codeigniter4/appstarter backend
+4. create database named fullstack_project
+5. Database connection with env file and environment
+6. php spark serve
+7. php spark make:controller dashboard
+8. Default Controller, Route in routes.php
+9. dis, plugins folder from adminlte copied to public/assets folder
+10. copied all codes from index.html to admin_home.php and updated paths
+11. templating for dashboard.php
+12. Migration for Products // php spark make:migration Products
+13. Model for ProductModel // php spark make:model ProductsModel
+14. Controller for Products // php spark make:controller Products --restful
+15. php spark migrate  // php spark migrate:status // php spark migrate:refresh // php spark migrate:rollback
+16. includs ProductModel in Products Controller
+
+      27 Dec 2022
+17. php spark make:seeder productsseeder  // make a seeder
+18. entry productsseeder page
+19. php spark make:seed ProductsSeeder

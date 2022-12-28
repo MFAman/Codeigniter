@@ -17,7 +17,6 @@ echo view('includes/navbar');
 
       <?php foreach ($students as $student) {
          //echo $student['name'] . "<br>";
-
       ?>
          <tr>
             <td><?php echo $student['id'] ?></td>
