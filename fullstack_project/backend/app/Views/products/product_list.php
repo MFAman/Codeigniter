@@ -50,9 +50,11 @@
                         <thead>
                            <tr>
                               <th>SL</th>
+                              <th>Image</th>
                               <th>Name</th>
                               <th>Details</th>
                               <th>Price</th>
+                              <th>Category</th>
                               <th>Action</th>
                            </tr>
                         </thead>
@@ -63,9 +65,18 @@
                            foreach ($products as $product) {; ?>
                               <tr>
                                  <td><?= $count ?></td>
+                                 <td><img src="<?= $product['product_image']; ?>" style="width: 90px;" alt=""></td>
+                                 <!-- <td><img src="assets/uploads/<?php //$product['product_image']; 
+                                                                     ?>" alt="Product Image" style="width: 80px;"></td> -->
                                  <td><?= $product['product_name']; ?></td>
                                  <td><?= $product['product_details']; ?></td>
                                  <td><?= $product['product_price']; ?></td>
+                                 <td><?php foreach ($cats as $cat) : if ($cat['id'] == $product['product_category']) : ?>
+                                          <?= $cat['category_name']; ?>
+
+                                    <?php
+                                          endif;
+                                       endforeach; ?></td>
                                  <td>
                                     <a href="<?= site_url("/products/edit/" . $product['id']) ?>" class="btn btn-info">Edit</a>
                                     <a href="<?= site_url("/products/delete/" . $product['id']) ?>" class="btn btn-danger">Delete</a>
@@ -78,9 +89,11 @@
                         <tfoot>
                            <tr>
                               <th>SL</th>
+                              <th>Image</th>
                               <th>Name</th>
                               <th>Details</th>
                               <th>Price</th>
+                              <th>Category</th>
                               <th>Action</th>
                            </tr>
                         </tfoot>

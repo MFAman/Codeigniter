@@ -48,7 +48,7 @@
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form action="<?= base_url('products/update/' . $product['id']); ?>" method="post">
+                  <form action="<?= base_url('products/update/' . $product['id']); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field(); ?>
                      <div class="card-body">
                         <?php
@@ -84,6 +84,15 @@
                            <span class="text-danger">
                               <?=
                               isset($errors['product_price']) ? $errors['product_price'] : '';
+                              ?>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label>Product Image</label>
+                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ? old('product_image') : $product['product_image']; ?>">
+                           <span class="text-danger">
+                              <?=
+                              isset($errors['product_image']) ? $errors['product_image'] : '';
                               ?>
                            </span>
                         </div>

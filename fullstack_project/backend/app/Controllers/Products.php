@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CategoryModel;
 use App\Models\ProductsModel;
 use CodeIgniter\RESTful\ResourceController;
 use finfo;
@@ -21,8 +22,10 @@ class Products extends ResourceController
 
     public function index()
     {
+        $model = new CategoryModel();
+        $data['cats'] = $model->findAll();
         $model = new ProductsModel();
-        $data['products'] = $model->findAll();
+        $data['products'] = $model->orderBy('id', 'desc')->findAll();
         return view("products/product_list", $data);
 
         // print_r($data);
@@ -46,7 +49,9 @@ class Products extends ResourceController
     public function new()
     {
         // echo "hello";
-        return view('products/add_product');
+        $model = new CategoryModel();
+        $data['cats'] = $model->orderBy('category_name', 'ASC')->findAll();
+        return view('products/add_product', $data);
     }
 
     /**
@@ -57,15 +62,20 @@ class Products extends ResourceController
     public function create()
     {
         $rules = [
-            'product_name' => 'required|min_length[5]|max_length[20]',
-            'product_details' => 'required|min_length[10]',
+            'product_name' => 'required|min_length[5]|max_length[50]',
+            'product_details' => 'required|min_length[5]',
             'product_price' => 'required|numeric',
+            'product_image' => [
+                'uploaded[product_image]',
+                'mime_in[product_image,image/jpg,image/jpeg,image/png]',
+                'max_size[product_image,1024]',
+            ]
         ];
         $errors =
             [
                 'product_name' => [
                     'required' => 'Product Name must be fill',
-                    'max_length' => 'Maximum length 5',
+                    'max_length' => 'Maximum length 50',
                     'min_length' => 'Minimum length 5',
                 ],
                 'product_details' => [
@@ -76,6 +86,10 @@ class Products extends ResourceController
                     'required' => 'Product Name must be fill',
                     'numeric' => 'Number only',
                 ],
+                'product_image' => [
+                    'mime_in' => 'Only jpg, png and jpeg are allowed',
+                    'max_size' => 'Not more than 1 MB'
+                ]
             ];
 
         $validation = $this->validate($rules, $errors);
@@ -83,8 +97,18 @@ class Products extends ResourceController
         if (!$validation) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
+            $img = $this->request->getFile('product_image');
+            $path = "/assets/uploads/";
+            $img->move($path);
+
+            $data['product_name'] = $this->request->getPost('product_name');
+            $data['product_details'] = $this->request->getPost('product_details');
+            $data['product_price'] = $this->request->getPost('product_price');
+            $namepath = $path . $img->getName();
+            $data['product_image'] = $namepath;
+            $data['product_category'] = $this->request->getPost('cat_name');
+
             $model = new ProductsModel();
-            $data = $this->request->getPost();
             $model->save($data);
             return redirect()->to('products');
         }
@@ -114,14 +138,26 @@ class Products extends ResourceController
             'product_name' => 'required|min_length[5]|max_length[20]',
             'product_details' => 'required|min_length[10]',
             'product_price' => 'required|numeric',
+            'product_image' => [
+                'uploaded[product_image]',
+                'mime_in[product_image,image/jpg,image/jpeg,image/png]',
+                'max_size[product_image,1024]',
+            ]
         ]);
         if (!$validate) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
-            $model = new ProductsModel();
+            $img = $this->request->getFile('product_image');
+            $path = "/assets/uploads/";
+            $img->move($path);
+
             $data["product_name"] = $this->request->getPost("product_name");
             $data["product_details"] = $this->request->getPost("product_details");
             $data["product_price"] = $this->request->getPost("product_price");
+            $namepath = $path . $img->getName();
+            $data['product_image'] = $namepath;
+
+            $model = new ProductsModel();
             $model->update($id, $data);
             return redirect()->to('products')->with('msg', "Updated Successfully");
         }

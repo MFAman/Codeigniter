@@ -33,7 +33,7 @@
                      <h3 class="card-title">Product Entry Form</h3>
                   </div>
 
-                  <form action="<?= base_url('/products/create'); ?>" method="post">
+                  <form action="<?= base_url('/products/create'); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field(); ?>
                      <div class="card-body">
                         <div class="form-group">
@@ -41,6 +41,22 @@
                            <input type="text" name="product_name" class="form-control" value="<?= old('product_name') ?>" placeholder="Enter Product email">
                            <span class="text-danger">
                               <?= isset($errors['product_name']) ? $errors['product_name'] : '' ?>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label>Product Category</label>
+                           <select name="cat_name" class="form-control">
+                              <option value="" selected>Select One</option>
+                              <?php foreach ($cats as $cat) : ?>
+                                 <option value="<?= $cat['id']; ?>"><?= $cat['category_name']; ?>
+                                 </option>
+                              <?php endforeach ?>
+
+                           </select>
+
+                           <input type="file" name="product_category" value="<?= old('product_category') ?>" placeholder="Enter Product Price">
+                           <span class="text-danger">
+                              <?= isset($errors['product_category']) ? $errors['product_category'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
@@ -57,6 +73,14 @@
                               <?= isset($errors['product_price']) ? $errors['product_price'] : '' ?>
                            </span>
                         </div>
+                        <div class="form-group">
+                           <label>Product Image</label>
+                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ?>" placeholder="Enter Product Price">
+                           <span class="text-danger">
+                              <?= isset($errors['product_image']) ? $errors['product_image'] : '' ?>
+                           </span>
+                        </div>
+
                      </div>
                      <div class="card-footer">
                         <button type="submit" class="btn btn-info">Submit</button>
