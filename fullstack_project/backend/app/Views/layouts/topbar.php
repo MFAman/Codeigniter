@@ -35,6 +35,13 @@
             </form>
          </div>
       </li>
+      <li class="nav-item">
+         <a href="<?php echo site_url('/users/logout') ?>" class="nav-link">
+            <p style="color: red;">
+               Logout
+            </p>
+         </a>
+      </li>
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
