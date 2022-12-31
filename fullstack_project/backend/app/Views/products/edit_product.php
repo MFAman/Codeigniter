@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group">
                            <label>Product Image</label>
-                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ? old('product_image') : $product['product_image']; ?>">
+                           <input type="file" name="product_image" class="form-control">
                            <span class="text-danger">
                               <?=
                               isset($errors['product_image']) ? $errors['product_image'] : '';

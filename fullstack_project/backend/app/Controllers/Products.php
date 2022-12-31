@@ -148,7 +148,7 @@ class Products extends ResourceController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
             $img = $this->request->getFile('product_image');
-            $path = "/assets/uploads/";
+            $path = "assets/uploads/";
             $img->move($path);
 
             $data["product_name"] = $this->request->getPost("product_name");

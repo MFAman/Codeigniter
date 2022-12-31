@@ -11,7 +11,6 @@ class SignupController extends BaseController
 {
     public function index()
     {
-
         return view("auth/signup");
     }
     public function store()
