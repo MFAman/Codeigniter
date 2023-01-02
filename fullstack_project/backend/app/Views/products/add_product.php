@@ -53,11 +53,6 @@
                               <?php endforeach ?>
 
                            </select>
-
-                           <input type="file" name="product_category" value="<?= old('product_category') ?>" placeholder="Enter Product Price">
-                           <span class="text-danger">
-                              <?= isset($errors['product_category']) ? $errors['product_category'] : '' ?>
-                           </span>
                         </div>
                         <div class="form-group">
                            <label>Product Details</label>
@@ -83,7 +78,7 @@
 
                      </div>
                      <div class="card-footer">
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <button type="submit" class="btn btn-info" onclick="return confirm('Product Added Successfully')">Submit</button>
                      </div>
                   </form>
 

@@ -68,6 +68,9 @@ export default function Navbar() {
                   <Link to="/testimonial" className="dropdown-item">
                     Testimonial
                   </Link>
+                  <Link to="/team" className="dropdown-item">
+                    Our Team
+                  </Link>
                   <Link to="/error" className="dropdown-item">
                     404 Error
                   </Link>
@@ -75,6 +78,9 @@ export default function Navbar() {
               </div>
               <Link to="/contact" className="nav-item nav-link">
                 Contact
+              </Link>
+              <Link to="/products" className="nav-item nav-link">
+                Products
               </Link>
             </div>
             <Link

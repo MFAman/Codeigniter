@@ -79,7 +79,7 @@
                                        endforeach; ?></td>
                                  <td>
                                     <a href="<?= site_url("/products/edit/" . $product['id']) ?>" class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url("/products/delete/" . $product['id']) ?>" class="btn btn-danger">Delete</a>
+                                    <a href="<?= site_url("/products/delete/" . $product['id']) ?>" class="btn btn-danger delete">Delete</a>
                                  </td>
                               </tr>
                            <?php $count++;
@@ -99,17 +99,25 @@
                         </tfoot>
                      </table>
                   </div>
-                  <!-- /.card-body -->
                </div>
             </section>
-
-            <!-- right col -->
          </div>
-         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
    </section>
-   <!-- /.content -->
+
 </div>
-<!-- /.content-wrapper -->
+
 
 <?php echo view('layouts/footer1.php'); ?>
+
+<script>
+   $(function() {
+      $(".delete").click(function(e) {
+         e.preventDefault();
+         $.post(this.href, function() {
+            alert('Successfully Deleted');
+            location.reload();
+         });
+      });
+   });
+</script>

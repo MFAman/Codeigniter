@@ -1,3 +1,10 @@
+<?php
+// $sess = session();
+// echo session()->get('name');
+// $_SESSION['session_data'];
+// print_r($sess->get());
+?>
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
    <!-- Left navbar links -->
    <ul class="navbar-nav">
@@ -41,6 +48,9 @@
                Logout
             </p>
          </a>
+      </li>
+      <li class="nav-item">
+         <p class="nav-link"> <strong> <?= session()->get('name'); ?></strong></p>
       </li>
 
       <!-- Messages Dropdown Menu -->

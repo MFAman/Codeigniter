@@ -27,8 +27,8 @@ class Products extends ResourceController
         $data['cats'] = $model->findAll();
         $model = new ProductsModel();
         $data['products'] = $model->orderBy('id', 'desc')->findAll();
-        // return view("products/product_list", $data);
-        return $this->respond($data);
+        return view("products/product_list", $data);
+        // return $this->respond($data);
 
         // print_r($data);
     }
@@ -100,7 +100,7 @@ class Products extends ResourceController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
             $img = $this->request->getFile('product_image');
-            $path = "/assets/uploads/";
+            $path = "assets/uploads/";
             $img->move($path);
 
             $data['product_name'] = $this->request->getPost('product_name');
@@ -161,7 +161,7 @@ class Products extends ResourceController
 
             $model = new ProductsModel();
             $model->update($id, $data);
-            return redirect()->to('products')->with('msg', "Updated Successfully");
+            return redirect()->to('products'); //->with('msg', "Updated Successfully");
         }
     }
 

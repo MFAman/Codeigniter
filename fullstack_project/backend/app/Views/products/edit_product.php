@@ -98,7 +98,7 @@
                         </div>
                      </div>
                      <div class="card-footer">
-                        <button type="submit" class="btn btn-success">Upadte</button>
+                        <button type="submit" class="btn btn-success" onclick="return confirm('Product Update Successfully')">Upadte</button>
                      </div>
                   </form>
                   <!-- </div> -->
