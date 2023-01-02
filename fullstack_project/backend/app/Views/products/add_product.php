@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                            <label>Product Image</label>
-                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ?>" placeholder="Enter Product Price">
+                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ?>">
                            <span class="text-danger">
                               <?= isset($errors['product_image']) ? $errors['product_image'] : '' ?>
                            </span>
