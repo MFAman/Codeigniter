@@ -42,6 +42,7 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->presenter('products', ['filter' => 'authGuard']);
 
+$routes->get('/qb', 'Qb::index');
 $routes->get('/users/signup', 'SignupController::index');
 $routes->post('/users/store', 'SignupController::store', ['filter' => 'authGuard']);
 $routes->get('/users/signin', 'SigninController::index');

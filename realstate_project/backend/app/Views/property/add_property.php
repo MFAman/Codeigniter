@@ -33,14 +33,14 @@
                      <h3 class="card-title">Property Entry Form</h3>
                   </div>
 
-                  <form action="<?= base_url('/products/create'); ?>" method="post" enctype="multipart/form-data">
+                  <form action="<?= base_url('/property/create'); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field(); ?>
                      <div class="card-body">
                         <div class="form-group">
                            <label>Property Name</label>
-                           <input type="text" name="product_name" class="form-control" value="<?= old('product_name') ?>" placeholder="Enter Product email">
+                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ?>" placeholder="Enter Product email">
                            <span class="text-danger">
-                              <?= isset($errors['product_name']) ? $errors['product_name'] : '' ?>
+                              <?= isset($errors['property_name']) ? $errors['property_name'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
@@ -56,23 +56,23 @@
                         </div>
                         <div class="form-group">
                            <label>Product Details</label>
-                           <textarea type="text" id="summernote" name="product_details" class="form-control" placeholder="Enter Product Details"><?= old('product_details') ?></textarea>
+                           <textarea type="text" id="summernote" name="property_details" class="form-control" placeholder="Enter Product Details"><?= old('property_details') ?></textarea>
                            <span class="text-danger">
-                              <?= isset($errors['product_details']) ? $errors['product_details'] : '' ?>
+                              <?= isset($errors['property_details']) ? $errors['property_details'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
                            <label>Product Price</label>
-                           <input type="text" name="product_price" class="form-control" value="<?= old('product_price') ?>" placeholder="Enter Product Price">
+                           <input type="text" name="property_price" class="form-control" value="<?= old('property_price') ?>" placeholder="Enter Product Price">
                            <span class="text-danger">
-                              <?= isset($errors['product_price']) ? $errors['product_price'] : '' ?>
+                              <?= isset($errors['property_price']) ? $errors['property_price'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
                            <label>Product Image</label>
-                           <input type="file" name="product_image" class="form-control" value="<?= old('product_image') ?>">
+                           <input type="file" name="property_image" class="form-control" value="<?= old('property_image') ?>">
                            <span class="text-danger">
-                              <?= isset($errors['product_image']) ? $errors['product_image'] : '' ?>
+                              <?= isset($errors['property_image']) ? $errors['property_image'] : '' ?>
                            </span>
                         </div>
 

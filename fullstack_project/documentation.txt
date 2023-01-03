@@ -26,3 +26,7 @@
 21. filters files includs authguard
 
 php spark migrate:status
+
+03/01/2023
+create query builder
+      php spark make:controller qb

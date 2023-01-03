@@ -64,8 +64,8 @@
                                  <td><?= $proper['property_size']; ?></td>
                                  <td><?= $proper['property_address']; ?></td>
                                  <td>
-                                    <a href="<?= site_url("/products/edit/" . $proper['id']) ?>" class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url("/products/delete/" . $proper['id']) ?>" class="btn btn-danger delete">Delete</a>
+                                    <a href="<?= site_url("/property/edit/" . $proper['id']) ?>" class="btn btn-info">Edit</a>
+                                    <a href="<?= site_url("/property/delete/" . $proper['id']) ?>" class="btn btn-danger delete">Delete</a>
                                  </td>
                               </tr>
                            <?php $count++;

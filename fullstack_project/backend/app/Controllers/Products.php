@@ -100,6 +100,12 @@ class Products extends ResourceController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
             $img = $this->request->getFile('product_image');
+            // if ($img->getName() != '') {
+            //     $img->move($this->upload_path);
+            //     $filename = $img->getName();
+            // } else {
+            //     $filename = 'no_image.jpg';
+            // };
             $path = "assets/uploads/";
             $img->move($path);
 

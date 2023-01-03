@@ -79,9 +79,6 @@ export default function Navbar() {
               <Link to="/contact" className="nav-item nav-link">
                 Contact
               </Link>
-              <Link to="/products" className="nav-item nav-link">
-                Products
-              </Link>
             </div>
             <Link
               to="/contact"
