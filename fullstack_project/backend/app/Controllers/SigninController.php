@@ -32,6 +32,7 @@ class SigninController extends BaseController
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
+                // return redirect()->to('/dashboard');
                 return redirect()->to('/dashboard');
             } else {
                 $session->setFlashdata('msg', 'Password is incorrect.');

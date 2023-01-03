@@ -1,0 +1,81 @@
+1.AdminLte download
+2. htdocs/fullstack_project
+3.composer create-project codeigniter4/apstarter backend
+4.create database named fullstack_project
+5. database connection with env file and environment
+6. php spark serve
+6. php spark make:controller dashboard
+7.Default Controller, Route in routes.php
+8. view- admin.php
+9. unzip AdmiLte and take dist and plugins and paste them in projects folder-public-assets. Copy all from index.html and paste in admin_home.php view,  and add assets/ before all plugins and dist as they r presented in public-assets folder. 
+
+10. devid all parts and add into view folder/layouts/all php file
+all php file add by <?php include('') ?>
+
+11.templating for dashboard.php
+12.Migration for products...// php spark make:migration Products
+13.model for productModel.. php spark make:model ProductModel
+14.controller for products.. php spark make:controller Products --restful
+
+15. Routes Update for Products
+
+16. migration run er jonno..  php spark migrate
+17. migrate status check korte.. php spark migrate:status
+18. migrate mistake solve e...php spark migrate:refresh
+19. command vole gele..php spark
+20. rollback korte..php spark migrate:rollback
+21. in model-ProductModel.php... set allowedFields
+22. include/improt (use App\Models\ProductModel,) in restfull prodcuts controller
+23. routes check korte....php spark routes
+
+///seed er madhome database e data add////
+24. php spark make:seeder productsSeeder
+25. to run seed/// php spark db:seed productsSeeder
+26. product image upload
+27. Category Table(id, cat_name)
+28. create migration, model, seeder and send data by seeder
+29. authentication://///////
+   a). create migration..... php spark make:migration users
+b). timestamp er jonno ("created_at" => [
+                    'type' => "TIMESTAMP",
+                    'default' => new RawSql('CURRENT_TIMESTAMP'),
+                ])
+c).write needed data structure in migration file
+d). then run ...php spark migrate users
+e).make seeder////---php spark make:seeder usersSeeder
+f).then run-----php spark db:seed usersSeeder
+g). make model-----php spark make:model users
+h). allowedfeild fill up
+i). make controller----php spark make:controller SignupController
+j). folder view->auth folder->signup.php
+k).go to controller->store function
+l).in Routes----$routes->get('/users/signup', 'SignupController::index');
+$routes->post('/users/store', 'SignupController::store');
+
+M). make controller---php spark make:controller SigninController
+N). view->auth->signin.php
+O). Routes--$routes->get('/users/signin', 'SigninController::index');
+P).make another method in signinController---auth and wright needed code
+Q). now Signin will work
+R). password vol hole email ka rekhe dete----return redirect()->back()->withInput();....and write old replace set_value
+S).make a filter authgurd...--- php spark make:filter authGuard....and enter into config->filter.php
+T).In App->filters->authGurd.php------add session code
+U).routes add ['filter' => 'authGuard'] in dashboard routes
+V). grouping Routes----
+
+
+30. front end er jonno------
+a). react er front end.......npx create-react-app frontend
+b).npm install react-router-dom
+c)codeigniter backend e cmd run kore----php spark make:filter Cors
+d).backend->app->filters->cors.php->add--- header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: X-API-KEY, Origin,X-Requested-With, Content-Type, Accept, Access-Control-Requested-Method, Authorization");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, PUT, DELETE");
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method == "OPTIONS"){
+            die();
+        }
+e). app->config->filters.php->add---- public $aliases=[ 'cors'     => App\Filters\Cors::class,] and wright('cors') under before
+f). backend->products controller e ..wright return $this->respond($data)---for convert data in jason file to show in frontend
+and).. add use ResponseTrait;
+g). npm install axios ---in frontend

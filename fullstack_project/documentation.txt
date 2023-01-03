@@ -20,6 +20,9 @@
 17. php spark make:seeder productsseeder  // make a seeder
 18. entry productsseeder page
 19. php spark make:seed ProductsSeeder
+== php spark db:seed ProductsSeeder
 
 20. php spark make:filter authguard
 21. filters files includs authguard
+
+php spark migrate:status
