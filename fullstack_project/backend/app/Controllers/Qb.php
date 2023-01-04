@@ -13,13 +13,13 @@ class Qb extends BaseController
         $db = \Config\Database::connect();
         // $builder = $db->table('products');
         // $builder = $db->table('products')->limit(10, 3);
-        $builder = $db->table('products');
-        echo "<pre>";
+        // $builder = $db->table('products');
+        // echo "<pre>";
         // $raw = $builder->get();
-        $raw = $builder->getWhere(['id' => 3]);
         // $raw = $builder->getWhere(['id' => 3]);
-        $data = $raw->getResult();
-        print_r($data);
+        // $raw = $builder->getWhere(['id' => 3]);
+        // $data = $raw->getResult();
+        // print_r($data);
         ##########
         // $builder = $db->table('products')->select('id, product_name, product_price')->getWhere(['id' => 3, 5]);
         // echo "<pre>";
@@ -45,11 +45,11 @@ class Qb extends BaseController
         // echo "<pre>";
         // print_r($data);
         ##########
-        // $builder = $db->table('products, categories');
-        // $builder->where('categories.id = products.product_category');
-        // $data = $builder->get()->getResult();
-        // echo "<pre>";
-        // print_r($data);
+        $builder = $db->table('products, categories');
+        $builder->where('categories.id = products.product_category');
+        $data = $builder->get()->getResult();
+        echo "<pre>";
+        print_r($data);
         ###############################
         // $builder = $db->table('products');
         // $builder->where('product_price > 3000 ');
@@ -66,11 +66,11 @@ class Qb extends BaseController
         // echo "<pre>";
         // print_r($data);
         ###########################        
-        $builder = $db->table('products');
-        echo "<pre>";
-        $raw = $builder->get();
-        $data['products'] = $raw->getResult();
+        // $builder = $db->table('products');
+        // echo "<pre>";
+        // $raw = $builder->get();
+        // $data['products'] = $raw->getResult();
         // print_r($data);
-        return view('test', $data);
+        // return view('test', $data);
     }
 }
