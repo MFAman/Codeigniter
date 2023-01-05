@@ -42,8 +42,6 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->presenter('products', ['filter' => 'authGuard']);
 
-$routes->get('/qb', 'Qb::index');
-$routes->get('/qbtest', 'Qbtest::index');
 $routes->get('/users/signup', 'SignupController::index');
 $routes->post('/users/store', 'SignupController::store', ['filter' => 'authGuard']);
 $routes->get('/users/signin', 'SigninController::index');
@@ -51,6 +49,14 @@ $routes->post('/users/login', 'SigninController::auth');
 $routes->get('/users/logout', 'SigninController::logout');
 $routes->get('/frontend/products', 'Frontend::ProductsList');
 $routes->get('/frontend/users', 'Frontend::UsersList');
+#################
+$routes->get('/qb', 'Qb::index');
+$routes->get('/qbtest', 'Qbtest::index');
+###########
+$routes->get('/test', 'TestController::index');
+$routes->get('/about', 'TestController::about');
+$routes->get('/list', 'TestController::productList');
+
 
 /*
  * --------------------------------------------------------------------

@@ -51,7 +51,6 @@
                                  <option value="<?= $cat['id']; ?>"><?= $cat['category_name']; ?>
                                  </option>
                               <?php endforeach ?>
-
                            </select>
                         </div>
                         <div class="form-group">
