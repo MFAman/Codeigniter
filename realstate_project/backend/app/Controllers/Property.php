@@ -37,7 +37,8 @@ class Property extends ResourceController
      */
     public function new()
     {
-        $model = new PropertyModel();
+        // $model = new PropertyModel();
+        return view('property/add_property');
     }
 
     /**

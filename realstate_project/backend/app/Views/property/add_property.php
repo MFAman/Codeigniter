@@ -44,17 +44,6 @@
                            </span>
                         </div>
                         <div class="form-group">
-                           <label>Product Category</label>
-                           <select name="cat_name" class="form-control">
-                              <option value="" selected>Select One</option>
-                              <?php foreach ($cats as $cat) : ?>
-                                 <option value="<?= $cat['id']; ?>"><?= $cat['category_name']; ?>
-                                 </option>
-                              <?php endforeach ?>
-
-                           </select>
-                        </div>
-                        <div class="form-group">
                            <label>Product Details</label>
                            <textarea type="text" id="summernote" name="property_details" class="form-control" placeholder="Enter Product Details"><?= old('property_details') ?></textarea>
                            <span class="text-danger">

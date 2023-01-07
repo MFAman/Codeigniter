@@ -16,7 +16,6 @@
                <h1 class="m-0">Products List</h1>
                <?php if (session()->has('msg')) : ?>
                   <div class="alert alert-success"><?= session()->msg; ?></div>
-
                <?php endif; ?>
                <?php if (session()->has('dlmsg')) : ?>
                   <div class="alert alert-danger"><?= session()->dlmsg; ?></div>
