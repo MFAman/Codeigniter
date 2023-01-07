@@ -17,6 +17,7 @@
                <?php if (session()->has('msg')) : ?>
                   <div class="alert alert-success"><?= session()->msg; ?></div>
                <?php endif; ?>
+
                <?php if (session()->has('dlmsg')) : ?>
                   <div class="alert alert-danger"><?= session()->dlmsg; ?></div>
                <?php endif; ?>
@@ -70,15 +71,15 @@
                                  <td><?= $product['product_name']; ?></td>
                                  <td><?= $product['product_details']; ?></td>
                                  <td><?= $product['product_price']; ?></td>
-                                 <td><?php foreach ($cats as $cat) : if ($cat['id'] == $product['product_category']) : ?>
-                                          <?= $cat['category_name']; ?>
-
-                                    <?php
-                                          endif;
-                                       endforeach; ?></td>
-                                 <td>
+                                 <td><?php $product['product_category'] ?>
+                                 </td>
+                                 <td class="d-flex justify-content-between">
                                     <a href="<?= site_url("/products/edit/" . $product['id']) ?>" class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url("/products/delete/" . $product['id']) ?>" class="btn btn-danger delete">Delete</a>
+
+                                    <form method="post" action="<?= site_url("/products/delete/" . $product['id']) ?>">
+                                       <?= csrf_field(); ?>
+                                       <button onclick="return confirm('Are you sure you want to')" class="btn btn-danger delete" type="submit">Delete</button>
+                                    </form>
                                  </td>
                               </tr>
                            <?php $count++;
@@ -106,17 +107,4 @@
 
 </div>
 
-
 <?php echo view('layouts/footer1.php'); ?>
-
-<script>
-   $(function() {
-      $(".delete").click(function(e) {
-         e.preventDefault();
-         $.post(this.href, function() {
-            alert('Successfully Deleted');
-            location.reload();
-         });
-      });
-   });
-</script>
