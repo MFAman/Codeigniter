@@ -35,17 +35,9 @@
             </tr>
          <?php endforeach; ?>
       </table>
-
-      <div class="pagination justify-content-center">
-         <?php if ($pager) : ?>
-            <?php $pagi_path = 'index.php/list'; ?>
-            <?php $pager->setPath($pagi_path); ?>
-            <?= $pager->links(); ?>
-         <?php endif; ?>
-      </div>
-
+      <!-- Pagination -->
+      <?php echo $pager->links('group1', 'bs_full'); ?>
    </div>
-
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

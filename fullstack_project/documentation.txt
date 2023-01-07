@@ -30,3 +30,16 @@ php spark migrate:status
 03/01/2023
 create query builder
       php spark make:controller qb
+
+
+****Pagination command Start
+
+1. first create a folder in views folder
+2. create a file bs_full.php
+3. go to Config folder and creat billow line in Pager.php file
+      'bs_full' => 'App\Views\Pagers\bs_full',
+4. go to Controllers folder and add billow text in TestController file
+      'group1'
+5. finally go to Views/pages/list.php file add billow line
+      <?php echo $pager->links('group1', 'bs_full'); ?>
+****Pagination command End

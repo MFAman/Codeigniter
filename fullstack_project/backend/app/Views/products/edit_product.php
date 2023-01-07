@@ -96,6 +96,16 @@
                               ?>
                            </span>
                         </div>
+                        <div class="form-group">
+                           <label for="category">Product Category</label>
+                           <input type="text" class="form-control" id="category" placeholder="Enter Product category" name="product_category" value="<?= old('product_category') ? old('product_category') : $products['product_category'] ?>">
+                           <span class="text-danger">
+                              <?= isset($errors['product_category']) ?
+                                 $errors['product_category'] : '';
+
+                              ?>
+                           </span>
+                        </div>
                      </div>
                      <div class="card-footer">
                         <button type="submit" class="btn btn-success" onclick="return confirm('Product Update Successfully')">Upadte</button>

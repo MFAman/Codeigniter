@@ -21,12 +21,12 @@ $routes->setDefaultController('Dashboard');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+// $routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -38,9 +38,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
-$routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
-$routes->presenter('products', ['filter' => 'authGuard']);
+$routes->group('', ['filter' => 'authGuard'], static function ($routes) {
+    $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
+    $routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
+    $routes->presenter('products', ['filter' => 'authGuard']);
+});
+
+
 
 $routes->get('/users/signup', 'SignupController::index');
 $routes->post('/users/store', 'SignupController::store', ['filter' => 'authGuard']);

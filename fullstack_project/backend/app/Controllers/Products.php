@@ -131,6 +131,8 @@ class Products extends ResourceController
     {
         // echo "yes";
         $model = new ProductsModel();
+        $model = new CategoryModel();
+        $data['cats'] = $model->orderBy('category_name', 'ASC')->findAll();
         $data['product'] = $model->find($id);
         return view("products/edit_product", $data);
     }
@@ -164,6 +166,7 @@ class Products extends ResourceController
             $data["product_price"] = $this->request->getPost("product_price");
             $namepath = $path . $img->getName();
             $data['product_image'] = $namepath;
+            $data['product_category'] = $this->request->getPost('cat_name');
 
             $model = new ProductsModel();
             $model->update($id, $data);

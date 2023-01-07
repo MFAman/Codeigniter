@@ -15,6 +15,8 @@
 
 <!-- jQuery -->
 <script src="/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Alertify -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
