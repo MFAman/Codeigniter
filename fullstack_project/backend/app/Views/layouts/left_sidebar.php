@@ -126,6 +126,35 @@
                </ul>
             </li>
             <li class="nav-item">
+               <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                     Reports
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="<?php echo base_url("reports/reports1") ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report 1</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?php echo base_url("reports/reports2") ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report 2</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?php echo base_url("reports/stafflist") ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report Staff List</p>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li class="nav-item">
                <a href="<?php echo site_url('/users/logout') ?>" class="nav-link">
                   <i class="nav-icon fas fa-chart-pie"></i>
                   <p>

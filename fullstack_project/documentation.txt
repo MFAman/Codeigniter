@@ -43,3 +43,10 @@ create query builder
 5. finally go to Views/pages/list.php file add billow line
       <?php echo $pager->links('group1', 'bs_full'); ?>
 ****Pagination command End
+
+####### Create Report Start ######
+
+1. Create Left sidebar dropdown list
+2. create Report Controller
+
+####### Create Report End ######
