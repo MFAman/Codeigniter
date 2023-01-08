@@ -44,7 +44,10 @@ $routes->group('', ['filter' => 'authGuard'], static function ($routes) {
     $routes->presenter('products', ['filter' => 'authGuard']);
 });
 
-
+$routes->get('/reports/stafflist', 'ReportsController::stafflist', ['filter' => 'authGuard']);
+$routes->get('/reports/allstaff', 'ReportsController::allstaff', ['filter' => 'authGuard']);
+$routes->get('/reports/orderlist', 'ReportsController::orderlist', ['filter' => 'authGuard']);
+$routes->get('/reports/orderquery', 'ReportsController::orderQuery', ['filter' => 'authGuard']);
 
 $routes->get('/users/signup', 'SignupController::index');
 $routes->post('/users/store', 'SignupController::store', ['filter' => 'authGuard']);
