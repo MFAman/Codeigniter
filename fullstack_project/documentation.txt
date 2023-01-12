@@ -50,3 +50,10 @@ create query builder
 2. create Report Controller
 
 ####### Create Report End ######
+
+###################
+Codeigniter and React Project Build
+      1. Move file index.php and .htaccess from public to backend
+      2. index.php edit ../app/Config/Paths.php to ./app/Config/Paths.php
+      3. in App.php $baseURL = 'http://localhost/codeigniter/fullstack_project/backend/'
+*******************

@@ -29,11 +29,9 @@ echo view('includes/navbar');
                <a href="student/delete/<?= $student['id'] ?>" class="btn btn-danger">Delete</a>
             </td>
          </tr>
-
       <?php } ?>
-
    </table>
-   <a href="/student/new" class="btn btn-primary">Create New Student</a>
+   <a href="<?= base_url('/student/new') ?>" class="btn btn-primary">Create New Student</a>
 </div>
 
 <?php
